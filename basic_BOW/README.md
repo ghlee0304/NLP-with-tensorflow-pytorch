@@ -1,9 +1,9 @@
 ## PPT
 
-<p align="center"><img width="100%" src="ppt/1.PNG" /></p>
-<p align="center"><img width="100%" src="ppt/2.PNG" /></p>
-<p align="center"><img width="100%" src="ppt/3.PNG" /></p>
-<p align="center"><img width="100%" src="ppt/4.PNG" /></p>
-<p align="center"><img width="100%" src="ppt/5.PNG" /></p>
-<p align="center"><img width="100%" src="ppt/6.PNG" /></p>
-<p align="center"><img width="100%" src="ppt/7.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/1.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/2.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/3.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/4.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/5.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/6.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/7.PNG" /></p>
