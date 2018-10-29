@@ -4,7 +4,7 @@ All about NLP
 ### Paper
 *Paper* |*Name* | *Author* | *Years*
 :---: | :---: | :---: | :---:
-arxiv(https://arxiv.org/abs/1301.3781) | Efficient Estimation of Word Representations in Vector Space | Sam Abrahams, Danijar Hafner, Erik Erwitt, Ariel Scarpinelli | 2016
+arxiv[https://arxiv.org/abs/1301.3781]| Efficient Estimation of Word Representations in Vector Space | Sam Abrahams, Danijar Hafner, Erik Erwitt, Ariel Scarpinelli | 2016
 2 | [First Contact With Tensorflow](https://www.amazon.com/First-Contact-Tensorflow-Jordi-Torres/dp/1326569333/ref=sr_1_1?s=books&ie=UTF8&qid=1528466940&sr=1-1&keywords=First+Contact+with+Tensorflow) | Jordi Torres | 2016
 3 | [Learning TensorFlow: A Guide to Building Deep Learning Systems](https://www.amazon.com/Learning-TensorFlow-Guide-Building-Systems/dp/1491978511/ref=sr_1_7?s=books&ie=UTF8&qid=1528466629&sr=1-7&keywords=tensorflow) | Tom Hope, Yehezkel S. Resheff, Itay Lieder | 2017
 4 | [Tensorflow Machine Learning Cookbook](https://www.amazon.com/TensorFlow-Machine-Learning-Cookbook-McClure/dp/1786462168/ref=sr_1_1_sspa?s=books&ie=UTF8&qid=1528466795&sr=1-1-spons&keywords=Tensorflow+Machine+Learning+Cookbook&psc=1) | Nick McClure | 2017 
