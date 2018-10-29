@@ -193,3 +193,15 @@ for sentence in texts:
 
 plt.grid()
 plt.show()
+'''
+Epoch :  100, Cost : 0.158068
+Epoch :  200, Cost : 0.016532
+Epoch :  300, Cost : 0.003564
+Epoch :  400, Cost : 0.000807
+Epoch :  500, Cost : 0.000185
+Epoch :  600, Cost : 0.000043
+Epoch :  700, Cost : 0.000010
+Epoch :  800, Cost : 0.000002
+Epoch :  900, Cost : 0.000001
+Epoch : 1000, Cost : 0.000000
+'''
