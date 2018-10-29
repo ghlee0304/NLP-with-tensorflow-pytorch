@@ -5,4 +5,3 @@
 <p align="center"><img width="100%" src="PPT/10.PNG" /></p>
 <p align="center"><img width="100%" src="PPT/11.PNG" /></p>
 <p align="center"><img width="100%" src="PPT/12.PNG" /></p>
-<p align="center"><img width="100%" src="PPT/BOW1.PNG" /></p>
