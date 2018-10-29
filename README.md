@@ -8,7 +8,7 @@ All about NLP
 [arxiv](https://arxiv.org/abs/1810.08854) | pair2vec: Compositional Word-Pair Embeddings for Cross-Sentence Inference| Mandar Joshi et al. | 2018
 
 
-## Comparision
+### Comparision
 comparision of word representations
 
  *Skip-Gram* | *CBOW* | *Pair2Vec*
