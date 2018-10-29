@@ -1,7 +1,7 @@
 ## PPT
 
-<p align="center"><img width="100%" src="PPT/TFIDF1.PNG" /></p>
-<p align="center"><img width="100%" src="PPT/TFIDF2.PNG" /></p>
-<p align="center"><img width="100%" src="PPT/TFIDF3.PNG" /></p>
-<p align="center"><img width="100%" src="PPT/TFIDF4.PNG" /></p>
-<p align="center"><img width="100%" src="PPT/TFIDF5.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/TFIDF_1.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/TFIDF_2.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/TFIDF_3.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/TFIDF_4.PNG" /></p>
+<p align="center"><img width="100%" src="PPT/TFIDF_5.PNG" /></p>
