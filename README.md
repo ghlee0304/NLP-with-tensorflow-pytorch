@@ -13,4 +13,4 @@ All results are randomly sampled.
 
  *Skip-Gram* | *CBOW* | *Pair2Vec*
  :---: | :---: | :---: |
-<img src = 'basic_Skip-gram/PPT/ydg_skip_results.png' height = '230px'> | <img src = 'basic_CBOW/PPT/ydg_star_results.png' height = '230px'> | <img src = 'assets/mnist_results/random_generation/GAN_epoch024_test_all_classes.png' height = '230px'>
+<img src = 'basic_Skip-gram/PPT/ydg_skip_results.png' height = '230px'> | <img src = 'basic_CBOW/PPT/ydg_star_results.png' height = '230px'> | <img src = 'basic_pair2vec/PPT/ydg_pair2vec.png' height = '230px'>
