@@ -117,7 +117,7 @@ word_vocab_size = len(word_vocab)
 total_epochs = 1000
 embed_size = 2
 batch_size = 1
-pos_iter = 3
+pos_iter = 2
 neg_iter = 1
 
 word_dataset = build_word_dataset(texts, pos_iter, neg_iter)
