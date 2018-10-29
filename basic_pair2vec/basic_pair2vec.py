@@ -132,7 +132,17 @@ b1 = tf.get_variable('b1', [embed_size], initializer=tf.zeros_initializer())
 
 o1 = tf.nn.l2_normalize(tf.nn.bias_add(tf.matmul(X, W1), b1), axis=1, name='X_embedd')
 o2 = tf.nn.l2_normalize(tf.nn.bias_add(tf.matmul(Y, W1), b1), axis=1, name='Y_embedd')
-o3 = tf.multiply(o1, o2, name='XY_inner')
+o3 = tf.multiply(o1, o2, name='XY_product')
+
+word_input = tf.concat([o1, o2, o3], axis=1)
+
+W2 = tf.get_variable('W2', [6, 4], initializer=tf.truncated_normal_initializer(stddev=0.01))
+b2 = tf.get_variable('b2', [4], initializer=tf.zeros_initializer())
+h2 = tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(word_input, W2), b2, name='h2'))
+
+W3 = tf.get_variable('W3', [4, embed_size], initializer=tf.truncated_normal_initializer(stddev=0.01))
+b3 = tf.get_variable('b3', [embed_size], initializer=tf.zeros_initializer())
+h3 = tf.nn.sigmoid(tf.nn.bias_add(tf.matmul(h2, W3), b3, name='h3'))
 
 C = tf.placeholder(dtype=tf.float32, shape=[None, len_max, word_vocab_size])
 
@@ -148,7 +158,9 @@ for ix in range(batch_size):
     tmp_c = tf.reduce_sum(tf.expand_dims(w[ix], axis=1)*tf.matmul(outputs[ix, :, :], W), axis=0)
     tmp_c = tf.expand_dims(tmp_c, axis=0)
     Cc.append(tmp_c)
-Cc = tf.concat(Cc, axis=0)
+
+h3 = tf.nn.l2_normalize(h3, axis=1)
+Cc = tf.nn.l2_normalize(tf.concat(Cc, axis=0), axis=1)
 
 logits = tf.reduce_sum(o3*Cc, axis=1)
 
@@ -193,6 +205,7 @@ for sentence in texts:
 
 plt.grid()
 plt.show()
+
 '''
 Epoch :  100, Cost : 0.158068
 Epoch :  200, Cost : 0.016532
