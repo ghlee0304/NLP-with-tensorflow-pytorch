@@ -107,7 +107,7 @@ def build_sentence_dataset(texts, word_vocab):
 
 
 tf.set_random_seed(0)
-text_data = ["죽는 날까지 하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 괴로워 했다",
+text_data = ["죽는 하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 괴로워 했다",
              "별을 노래하는 마음으로 모든 죽어가는 것을 사랑해야지"]
 
 stopword_list = ['우', '러']
@@ -117,7 +117,7 @@ word_vocab, words = build_vocab(texts)
 word_vocab_rev = dict(zip(word_vocab.values(), word_vocab.keys()))
 word_vocab_size = len(word_vocab)
 
-total_epochs = 1000
+total_epochs = 100
 embed_size = 2
 batch_size = 1
 pos_iter = 10
@@ -188,7 +188,7 @@ for epoch in range(total_epochs):
         _, c = sess.run([train, cost], feed_dict={X: xx, Y: yy, C: cc, T: tt})
         losses += c/len(word_dataset)
 
-    if (epoch+1) % 100 == 0:
+    if (epoch+1) % 10 == 0:
         print("Epoch : {:4d}, Cost : {:.6f}".format(epoch+1, losses))
 
 cnt = 0
@@ -207,3 +207,16 @@ for sentence in texts:
 
 plt.grid()
 plt.show()
+
+'''
+Epoch :   10, Cost : 0.015152
+Epoch :   20, Cost : 0.003186
+Epoch :   30, Cost : 0.001016
+Epoch :   40, Cost : 0.000364
+Epoch :   50, Cost : 0.000136
+Epoch :   60, Cost : 0.000051
+Epoch :   70, Cost : 0.000020
+Epoch :   80, Cost : 0.000007
+Epoch :   90, Cost : 0.000003
+Epoch :  100, Cost : 0.000001
+'''
