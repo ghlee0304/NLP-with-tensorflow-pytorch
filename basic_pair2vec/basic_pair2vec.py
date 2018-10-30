@@ -157,6 +157,7 @@ C = tf.placeholder(dtype=tf.float32, shape=[None, len_max, word_vocab_size])
 cell = tf.contrib.rnn.LSTMCell(num_units=embed_size, initializer=tf.glorot_uniform_initializer())
 outputs, states = tf.nn.dynamic_rnn(cell, C, dtype=tf.float32)
 
+#이 부분이 잘못되었음
 k = tf.get_variable('k', [embed_size, len_max, 1], initializer=tf.ones_initializer(), trainable=False)
 w = tf.nn.softmax(tf.reduce_sum(outputs*k, axis=2), axis=1)
 W = tf.get_variable('W', [embed_size, embed_size], initializer=tf.truncated_normal_initializer(stddev=0.01))
