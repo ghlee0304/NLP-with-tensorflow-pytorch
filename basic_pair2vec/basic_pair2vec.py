@@ -1,4 +1,10 @@
 '''
+pair2vec_v1
+2018-10-30
+Objective: Bivariate Negative Sampling
+'''
+
+'''
 pair2vec
 2018-10-29
 Objective: Bivariate Negative Sampling
@@ -91,7 +97,8 @@ def build_sentence_dataset(texts, word_vocab):
                 n += 1
             else:
                 tmp_data = np.append(tmp_data, one_hot, axis=1)
-        if np.size(tmp_data, 1) < len_max:
+
+        while np.size(tmp_data, 1) < len_max:
             one_hot = np.zeros([1, 1, len_vocab])
             one_hot[0, 0, 0] = 1.0
             tmp_data = np.append(tmp_data, one_hot, axis=1)
@@ -102,6 +109,7 @@ def build_sentence_dataset(texts, word_vocab):
             dataset = np.append(dataset, tmp_data, axis=0)
 
     return dataset, len_max
+
 
 tf.set_random_seed(0)
 text_data = ["하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 부끄러워 했다",
@@ -136,17 +144,17 @@ o3 = tf.multiply(o1, o2, name='XY_product')
 
 word_input = tf.concat([o1, o2, o3], axis=1)
 
-W2 = tf.get_variable('W2', [6, 4], initializer=tf.truncated_normal_initializer(stddev=0.01))
-b2 = tf.get_variable('b2', [4], initializer=tf.zeros_initializer())
+W2 = tf.get_variable('W2', [embed_size*3, embed_size*2], initializer=tf.truncated_normal_initializer(stddev=0.01))
+b2 = tf.get_variable('b2', [embed_size*2], initializer=tf.zeros_initializer())
 h2 = tf.nn.tanh(tf.nn.bias_add(tf.matmul(word_input, W2), b2, name='h2'))
 
-W3 = tf.get_variable('W3', [4, embed_size], initializer=tf.truncated_normal_initializer(stddev=0.01))
+W3 = tf.get_variable('W3', [embed_size*2, embed_size], initializer=tf.truncated_normal_initializer(stddev=0.01))
 b3 = tf.get_variable('b3', [embed_size], initializer=tf.zeros_initializer())
 h3 = tf.nn.tanh(tf.nn.bias_add(tf.matmul(h2, W3), b3, name='h3'))
 
 C = tf.placeholder(dtype=tf.float32, shape=[None, len_max, word_vocab_size])
 
-cell = tf.contrib.rnn.LSTMCell(num_units=2, initializer=tf.glorot_uniform_initializer())
+cell = tf.contrib.rnn.LSTMCell(num_units=embed_size, initializer=tf.glorot_uniform_initializer())
 outputs, states = tf.nn.dynamic_rnn(cell, C, dtype=tf.float32)
 
 k = tf.get_variable('k', [embed_size, len_max, 1], initializer=tf.ones_initializer(), trainable=False)
@@ -203,16 +211,3 @@ for sentence in texts:
 
 plt.grid()
 plt.show()
-
-'''
-Epoch :  100, Cost : 0.006610
-Epoch :  200, Cost : 0.000862
-Epoch :  300, Cost : 0.000159
-Epoch :  400, Cost : 0.000031
-Epoch :  500, Cost : 0.000006
-Epoch :  600, Cost : 0.000001
-Epoch :  700, Cost : 0.000000
-Epoch :  800, Cost : 0.000000
-Epoch :  900, Cost : 0.000000
-Epoch : 1000, Cost : 0.000000
-'''
