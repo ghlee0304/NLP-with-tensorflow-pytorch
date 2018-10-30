@@ -14,4 +14,4 @@
 
  *pair2vec_v1* | *pair2vec_v2* |
  :---: | :---: | 
-<img src = "PPT/ydg_pair2vec_v01.png" height = '300px'> | <img src = "PPT/ydg_pair2vec_v2.png" height = '300px'> |
+<img src = "PPT/ydg_pair2vec_v01.png" height = '350px'> | <img src = "PPT/ydg_pair2vec_v2.png" height = '350px'> |
