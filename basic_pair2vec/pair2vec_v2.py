@@ -224,3 +224,19 @@ print(texts)
 
 plt.grid()
 plt.show()
+
+'''
+=== The number of data samples : 3150 ===
+> Train Start
+Epoch :  100, Cost : 0.344267
+Epoch :  200, Cost : 0.343320
+Epoch :  300, Cost : 0.342278
+Epoch :  400, Cost : 0.286317
+Epoch :  500, Cost : 0.115812
+Epoch :  600, Cost : 0.101747
+Epoch :  700, Cost : 0.089372
+Epoch :  800, Cost : 0.082475
+Epoch :  900, Cost : 0.078406
+Epoch : 1000, Cost : 0.075668
+[['날', '하늘', '우러러', '점', '부끄럼', '잎새', '바람', '나'], ['별', '노래', '마음', '모든', '사랑'], ['나', '길', '가야'], ['오늘', '밤', '별', '바람', '스치운']]
+'''
