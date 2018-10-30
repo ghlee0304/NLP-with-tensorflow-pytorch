@@ -6,11 +6,9 @@
 # Introduction
 
 # Version
-- v1
-SGD with 2 Sentences
+- v1 : SGD with 2 Sentences
 
-- v2
-mini batch SGD with 4 Sentences
+- v2 : mini batch SGD with 4 Sentences
 
 ## 윤동주 결과
 - pair2vec_v1
