@@ -9,7 +9,7 @@
 - v1
 SGD with 2 Sentences
 
--v2
+- v2
 mini batch SGD with 4 Sentences
 
 ## 윤동주 결과
