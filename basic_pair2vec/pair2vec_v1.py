@@ -1,7 +1,8 @@
 '''
 pair2vec
-2018-10-29
+2018-10-30
 Objective: Bivariate Negative Sampling
+SGD
 '''
 
 from konlpy.tag import Kkma
@@ -106,7 +107,7 @@ def build_sentence_dataset(texts, word_vocab):
 
 
 tf.set_random_seed(0)
-text_data = ["죽는 하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 괴로워 했다",
+text_data = ["죽는 날까지 하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 괴로워 했다",
              "별을 노래하는 마음으로 모든 죽어가는 것을 사랑해야지"]
 
 stopword_list = ['우', '러']
