@@ -1,7 +1,8 @@
 '''
-pair2vec
-2018-10-29
+pair2vec_v2
+2018-10-30
 Objective: Bivariate Negative Sampling
+minibatch SGD
 '''
 
 from konlpy.tag import Kkma
