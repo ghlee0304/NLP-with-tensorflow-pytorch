@@ -1,4 +1,4 @@
-# Pairr2VecTutorial
+# Pair2Vec Tutorial
 
 *Author: Gyeong-Hoon Lee ([Github](https://github.com/ghlee0304))*
 
