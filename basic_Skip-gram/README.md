@@ -1,7 +1,7 @@
 
 *Name* | *Paper Link* | *Loss*
 :---: | :---: | :--- |
-**NCE** | [ACM](https://dl.acm.org/citation.cfm?id=2188396) | <img src = 'PPT/NEC.JPG' height = '70px'>
+**NCE** | [ACM](https://dl.acm.org/citation.cfm?id=2188396) | <img src = 'PPT/NCE.JPG' height = '70px'>
 
 ## PPT
 
