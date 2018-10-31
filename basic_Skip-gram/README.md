@@ -4,7 +4,7 @@
 
 *Paper Link* | *Version* | *Objective*
 :---: | :---: | :---: |
-**[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE1.JPG' height = '70px'>
+**[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE1.JPG' height = '65px'>
 
 ## PPT
 
