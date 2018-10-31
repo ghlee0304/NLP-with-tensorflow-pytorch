@@ -1,4 +1,4 @@
-## Reference
+## Loss
 
 *Paper Link* | *Version* | *Loss*
 :---: | :---: | :---: |
