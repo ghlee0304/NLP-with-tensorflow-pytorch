@@ -9,6 +9,10 @@
 ## Prologue by Dong-Ju Yun 
 <p align="center"><img width="80%" src="PPT/ydg_skip_v1.png" /></p>
 
+ *Skip-gram_v1* | *Skip-gram_v2* |
+ :---: | :---: | 
+<img src="PPT/ydg_skip_v1.png" height = '350px'> |  |
+
 ## PPT
 
 <p align="center"><img width="100%" src="PPT/skip1.PNG" /></p>
