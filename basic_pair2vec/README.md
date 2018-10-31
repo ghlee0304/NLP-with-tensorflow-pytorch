@@ -1,6 +1,7 @@
 # Pair2Vec Tutorial
 
 *Author: Gyeong-Hoon Lee ([Github](https://github.com/ghlee0304))*
+*reference paper : pair2vec: Compositional Word-Pair Embeddings for Cross-Sentence Inference [arxiv](https://arxiv.org/abs/1810.08854))*
 
 - [Introduction](#introduction)
 # Introduction
