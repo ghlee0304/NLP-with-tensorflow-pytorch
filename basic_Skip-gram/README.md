@@ -1,7 +1,7 @@
 
 *Name* | *Paper Link* | *Loss*
 :---: | :---: | :--- |
-**NCE** | [Noise-contrastive estimation of unnormalized statistical models, with applications to natural image statistics](https://dl.acm.org/citation.cfm?id=2188396) | <img src = 'PPT/NEC.JPG' height = '70px'>
+**NCE** | [ACM](https://dl.acm.org/citation.cfm?id=2188396) | <img src = 'PPT/NEC.JPG' height = '70px'>
 
 ## PPT
 
