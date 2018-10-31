@@ -6,6 +6,9 @@
 :---: | :---: | :---: |
 **[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE1.JPG' height = '65px'>
 
+## 윤동주 결과
+<p align="center"><img width="80%" src="PPT/ydg_skip_v1.png" /></p>
+
 ## PPT
 
 <p align="center"><img width="100%" src="PPT/skip1.PNG" /></p>
@@ -20,5 +23,4 @@
 <p align="center"><img width="100%" src="PPT/skip10.PNG" /></p>
 <p align="center"><img width="100%" src="PPT/skip11.PNG" /></p>
 
-## 윤동주 결과
-<p align="center"><img width="100%" src="PPT/ydg_skip_results.png" /></p>
+
