@@ -7,8 +7,6 @@
 **[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE1.JPG' height = '65px'>
 
 ## Prologue by Dong-Ju Yun 
-<p align="center"><img width="80%" src="PPT/ydg_skip_v1.png" /></p>
-
  *Skip-gram_v1* | *Skip-gram_v2* |
  :---: | :---: | 
 <img src="PPT/ydg_skip_v1.png" height = '350px'> |  |
