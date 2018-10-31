@@ -1,10 +1,10 @@
 ## Objective
 
-\\x = {-b \pm \sqrt{b^2-4ac} \over 2a}\\
+<img src = 'PPT/NCE0.JPG' height = '100px'>
 
 *Paper Link* | *Version* | *Objective*
 :---: | :---: | :---: |
-**[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE.JPG' height = '100px'>
+**[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE1.JPG' height = '100px'>
 
 ## PPT
 
