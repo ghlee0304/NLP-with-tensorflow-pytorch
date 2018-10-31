@@ -10,8 +10,7 @@
 
 - v2 : mini batch SGD with 4 Sentences
 
-## 윤동주 결과
-
+## Prologue by Dong-Ju Yun 
  *pair2vec_v1* | *pair2vec_v2* |
  :---: | :---: | 
 <img src = "PPT/ydg_pair2vec_v01.png" height = '350px'> | <img src = "PPT/ydg_pair2vec_v2.png" height = '350px'> |
