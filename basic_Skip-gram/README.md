@@ -1,7 +1,7 @@
 
-*Name* | *Paper Link* | *Loss*
-:---: | :---: | :--- |
-**NCE** | [ACM](https://dl.acm.org/citation.cfm?id=2188396) | <img src = 'PPT/NCE.JPG' height = '100px'>
+*Paper Link* | *Version* | *Loss*
+:---: | :---: | :---: |
+**[NCE](https://dl.acm.org/citation.cfm?id=2188396)** | basic_skip_gram_v1.py | <img src = 'PPT/NCE.JPG' height = '100px'>
 
 ## PPT
 
