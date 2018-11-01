@@ -11,8 +11,9 @@
  :---: | :---: | 
 <img src="PPT/ydg_skip_v1_plot.png" height = '350px'> |  |
 
-### Skip-gram v1
-
+*Name* | *Epoch 1* | *Epoch 5* | *Epoch 10* | *Epoch 20*
+:---: | :---: | :---: | :---: | :---: |
+v1 | <img src = 'assets/mnist_results/random_generation/GAN_epoch001_test_all_classes.png' height = '230px'> | <img src = 'assets/mnist_results/random_generation/GAN_epoch009_test_all_classes.png' height = '230px'> | 
 
 ## PPT
 
