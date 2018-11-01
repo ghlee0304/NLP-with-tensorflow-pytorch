@@ -13,7 +13,7 @@
 
 *Name* | *Epoch 1* | *Epoch 5* | *Epoch 10* | *Epoch 20*
 :---: | :---: | :---: | :---: | :---: |
-v1 | <img src = 'assets/mnist_results/random_generation/GAN_epoch001_test_all_classes.png' height = '230px'> | <img src = 'assets/mnist_results/random_generation/GAN_epoch009_test_all_classes.png' height = '230px'> | 
+v1 | <img src = 'figure/ydg_skip_v1_plot_epoch1.png' height = '230px'> | <img src = 'figure/ydg_skip_v1_plot_epoch5.png' height = '230px'> | <img src = 'figure/ydg_skip_v1_plot_epoch10.png' height = '230px'> | <img src = 'figure/ydg_skip_v1_plot_epoch20.png' height = '230px'>
 
 ## PPT
 
