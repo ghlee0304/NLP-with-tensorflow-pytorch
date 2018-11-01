@@ -1,16 +1,19 @@
+"""
+작성자 : 이경훈
+최종 수정일 : 2018년 11월 1일
+"""
+
 from konlpy.tag import Kkma
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 import matplotlib
-#import matplotlib.font_manager as fm
 
 font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
 rc('font', family=font_name)
 matplotlib.rcParams['axes.unicode_minus']=False
-#font_list = fm.findSystemFonts(fontpaths=None, fontext='ttf')
-#print(font_list)
+
 
 def tokenizer(text_data, stopword_list):
     kkma = Kkma()
@@ -24,34 +27,40 @@ def build_vocab(some_texts):
     words = []
     for t in some_texts:
         words.extend(t)
-    words_set = set(words)
+    words_set = sorted(set(words))
     vocab_dict = {}
     vocab_dict['RARE'] = 0
     for ix, word in enumerate(words_set):
         vocab_dict[word] = ix+1
     return vocab_dict, words
 
+
 def one_hot_encoding(word_id, vocab_size):
     tmp = np.zeros([vocab_size])
     tmp[word_id] = 1.0
+    tmp = np.expand_dims(tmp, axis=0)
     return tmp
+
 
 def build_dataset(some_texts, words, vocab, window_size, iter, seed):
 
     positive_pairs = []
     negative_pairs = []
+    _seed = seed
 
     for text in some_texts:
         len_text = len(text)
         for ix, word in enumerate(text):
-            if ix - window_size >= 0 and ix + window_size <= len_text:
-                indices = [i for i in range(ix-window_size,ix+window_size) if not i is ix]
-                for i in range(iter):
-                    ixx = np.random.choice(indices)
-                    context_word = text[ixx]
-                    positive_pairs.append([vocab[word],vocab[context_word]])
-                    negative_word = np.random.choice([w for w in words if not w in text])
-                    negative_pairs.append([vocab[word], vocab[negative_word]])
+            context_words = [text[k] for k in range(ix - window_size, ix + window_size + 1) if not k < 0 and not k >= len_text and not k == ix]
+            for i in range(iter):
+                np.random.seed(_seed)
+                _seed+=1
+                positive_word = np.random.choice([w for w in words if w in context_words])
+                positive_pairs.append([vocab[word],vocab[positive_word]])
+                np.random.seed(_seed)
+                _seed += 1
+                negative_word = np.random.choice([w for w in words if not w in text])
+                negative_pairs.append([vocab[word], vocab[negative_word]])
 
     negative_pairs = [w for w in negative_pairs if not w in positive_pairs]
     positive_pairs = np.array(positive_pairs)
@@ -65,19 +74,8 @@ def build_dataset(some_texts, words, vocab, window_size, iter, seed):
     target_data = np.append(target_data, negative_pairs[:, 1])
     labels = np.append(labels, np.zeros(len(negative_pairs)))
 
-    input_batch = np.zeros([len(input_data), len(vocab)])
-    target_batch = np.zeros([len(target_data), len(vocab)])
-
-    for ix, id in enumerate(input_data):
-        input_batch[ix, id] = 1.0
-
-    for ix, id in enumerate(target_data):
-        target_batch[ix, id] = 1.0
-
     return input_data, target_data, labels
 
-
-tf.set_random_seed(0)
 
 text_data = ["죽는 날까지 하늘을 우러러 한 점 부끄럼이 없기를, 잎새에 이는 바람에도 나는 괴로워했다",
              "별을 노래하는 마음으로 모든 죽어가는 것을 사랑해야지",
@@ -95,10 +93,13 @@ total_epochs = 1000
 embed_size = 2
 window_size = 1
 iter = 30
-batch_size = 256
+batch_size = 128
 seed = 0
 
 input_data, target_data, labels = build_dataset(texts, words, vocab, window_size, iter, seed)
+
+
+tf.set_random_seed(0)
 
 X = tf.placeholder(dtype=tf.float32, shape=[batch_size, vocab_size], name='X')
 Y = tf.placeholder(dtype=tf.float32, shape=[batch_size], name='Y')
@@ -124,6 +125,9 @@ sess = tf.Session(config=config)
 
 sess.run(tf.global_variables_initializer())
 
+print("> The number of data samples : {}".format(len(input_data)))
+print("> Train Start!!!")
+
 total_step = int(len(input_data)/batch_size)
 for epoch in range(total_epochs):
     np.random.seed(epoch)
@@ -132,9 +136,9 @@ for epoch in range(total_epochs):
     for step in range(total_step):
         s = step*batch_size
         t = (step+1)*batch_size
-        _, c = sess.run([train, cost], feed_dict={X: np.concatenate([np.expand_dims(one_hot_encoding(w, vocab_size), axis=0) for w in input_data[mask[s:t]]], axis=0),
+        _, c = sess.run([train, cost], feed_dict={X: np.concatenate([one_hot_encoding(w, vocab_size) for w in input_data[mask[s:t]]], axis=0),
                                                  Y: labels[mask[s:t]],
-                                                 T: np.concatenate([np.expand_dims(one_hot_encoding(w, vocab_size), axis=0) for w in target_data[mask[s:t]]], axis=0)})
+                                                 T: np.concatenate([one_hot_encoding(w, vocab_size) for w in target_data[mask[s:t]]], axis=0)})
         loss_per_epoch += c/total_step
 
     if epoch % 100 == 0:
@@ -143,7 +147,7 @@ for epoch in range(total_epochs):
 for ix, sentence in enumerate(texts):
     for word in sentence:
         id = vocab[word]
-        word_one_hot = np.expand_dims(one_hot_encoding(id, vocab_size), axis=0)
+        word_one_hot =one_hot_encoding(id, vocab_size)
         word_vec = np.reshape(sess.run(prediction, feed_dict={X_one: word_one_hot}),-1)
         if ix == 0: color = 'b'
         elif ix == 1: color = 'r'
@@ -159,16 +163,18 @@ plt.grid()
 plt.show()
 
 '''
-Epoch :    0, Cost : 0.755819
-Epoch :  100, Cost : 0.434483
-Epoch :  200, Cost : 0.438684
-Epoch :  300, Cost : 0.437103
-Epoch :  400, Cost : 0.433184
-Epoch :  500, Cost : 0.429189
-Epoch :  600, Cost : 0.433840
-Epoch :  700, Cost : 0.431945
-Epoch :  800, Cost : 0.435796
-Epoch :  900, Cost : 0.429726
+> The number of data samples : 1230
+> Train Start!!!
+Epoch :    0, Cost : 0.670135
+Epoch :  100, Cost : 0.456088
+Epoch :  200, Cost : 0.455884
+Epoch :  300, Cost : 0.454700
+Epoch :  400, Cost : 0.451321
+Epoch :  500, Cost : 0.448840
+Epoch :  600, Cost : 0.451914
+Epoch :  700, Cost : 0.452484
+Epoch :  800, Cost : 0.451232
+Epoch :  900, Cost : 0.453040
 [['날', '하늘', '우러러', '점', '부끄럼', '잎새', '바람', '나'], 
  ['별', '노래', '마음', '모든', '사랑'], 
  ['나', '길', '가야'], 
