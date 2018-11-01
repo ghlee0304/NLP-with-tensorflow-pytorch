@@ -13,7 +13,7 @@
 
 *Name* | *Epoch 5* | *Epoch 10* | *Epoch 20*
 :---: | :---: | :---: | :---: |
-v1 | <img src = 'figure/ydg_skip_v1_plot_epoch5.png' width = '100px'> | <img src = 'figure/ydg_skip_v1_plot_epoch10.png'> | <img src = 'figure/ydg_skip_v1_plot_epoch20.png' >
+v1 | <img src = 'figure/ydg_skip_v1_plot_epoch5.png' width = '400px'> | <img src = 'figure/ydg_skip_v1_plot_epoch10.png'> | <img src = 'figure/ydg_skip_v1_plot_epoch20.png' >
 
 ## PPT
 
