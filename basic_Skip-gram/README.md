@@ -11,9 +11,9 @@
  :---: | :---: | 
 <img src="PPT/ydg_skip_v1_plot.png" height = '350px'> |  |
 
-*Name* | *Epoch 1* | *Epoch 5* | *Epoch 10* | *Epoch 20*
-:---: | :---: | :---: | :---: | :---: |
-v1 | <img src = 'figure/ydg_skip_v1_plot_epoch1.png'>  | <img src = 'figure/ydg_skip_v1_plot_epoch5.png'> | <img src = 'figure/ydg_skip_v1_plot_epoch10.png'> | <img src = 'figure/ydg_skip_v1_plot_epoch20.png' >
+*Name* | *Epoch 5* | *Epoch 10* | *Epoch 20*
+:---: | :---: | :---: | :---: |
+v1 | <img src = 'figure/ydg_skip_v1_plot_epoch5.png'> | <img src = 'figure/ydg_skip_v1_plot_epoch10.png'> | <img src = 'figure/ydg_skip_v1_plot_epoch20.png' >
 
 ## PPT
 
