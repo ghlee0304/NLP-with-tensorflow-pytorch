@@ -11,6 +11,9 @@
  :---: | :---: | 
 <img src="PPT/ydg_skip_v1_plot.png" height = '350px'> |  |
 
+### Skip-gram v1
+
+
 ## PPT
 
 <p align="center"><img width="100%" src="PPT/skip1.PNG" /></p>
