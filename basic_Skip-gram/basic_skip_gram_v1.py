@@ -60,7 +60,7 @@ def build_dataset(some_texts, words, vocab, window_size, iter, seed):
                 positive_pairs.append([vocab[word],vocab[positive_word]])
                 np.random.seed(_seed)
                 _seed += 1
-                negative_word = np.random.choice([w for w in words if not w in text])
+                negative_word = np.random.choice([w for w in words if not w in context_words])
                 negative_pairs.append([vocab[word], vocab[negative_word]])
 
     negative_pairs = [w for w in negative_pairs if not w in positive_pairs]
@@ -166,16 +166,16 @@ plt.show()
 '''
 > The number of data samples : 1230
 > Train Start!!!
-Epoch :    0, Cost : 0.670135
-Epoch :  100, Cost : 0.456088
-Epoch :  200, Cost : 0.455884
-Epoch :  300, Cost : 0.454700
-Epoch :  400, Cost : 0.451321
-Epoch :  500, Cost : 0.448840
-Epoch :  600, Cost : 0.451914
-Epoch :  700, Cost : 0.452484
-Epoch :  800, Cost : 0.451232
-Epoch :  900, Cost : 0.453040
+Epoch :    0, Cost : 0.693112
+Epoch :  100, Cost : 0.465482
+Epoch :  200, Cost : 0.454649
+Epoch :  300, Cost : 0.451714
+Epoch :  400, Cost : 0.451553
+Epoch :  500, Cost : 0.451819
+Epoch :  600, Cost : 0.450120
+Epoch :  700, Cost : 0.450229
+Epoch :  800, Cost : 0.450913
+Epoch :  900, Cost : 0.450639
 [['날', '하늘', '우러러', '점', '부끄럼', '잎새', '바람', '나'], 
  ['별', '노래', '마음', '모든', '사랑'], 
  ['나', '길', '가야'], 
