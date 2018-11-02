@@ -93,7 +93,7 @@ vocab_size = len(vocab)
 total_epochs = 1000
 embed_size = 2
 window_size = 1
-iter = 30
+iter = 50
 batch_size = 128
 seed = 0
 
