@@ -23,6 +23,7 @@ def tokenizer(text_data, stopword_list):
         texts.append(tmp)
     return texts
 
+
 def build_vocab(some_texts):
     words = []
     for t in some_texts:
@@ -54,7 +55,7 @@ def build_dataset(some_texts, words, vocab, window_size, iter, seed):
             context_words = [text[k] for k in range(ix - window_size, ix + window_size + 1) if not k < 0 and not k >= len_text and not k == ix]
             for i in range(iter):
                 np.random.seed(_seed)
-                _seed+=1
+                _seed += 1
                 positive_word = np.random.choice([w for w in words if w in context_words])
                 positive_pairs.append([vocab[word],vocab[positive_word]])
                 np.random.seed(_seed)
