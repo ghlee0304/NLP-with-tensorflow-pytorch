@@ -147,3 +147,18 @@ print(texts)
 
 plt.grid()
 plt.show()
+
+'''
+> The number of data samples : 850
+> Train Start!!!
+Epoch :    0, Cost : 1.311364
+Epoch :   10, Cost : 1.132766
+Epoch :   20, Cost : 1.050370
+Epoch :   30, Cost : 1.020001
+Epoch :   40, Cost : 1.017627
+Epoch :   50, Cost : 1.016848
+Epoch :   60, Cost : 1.016014
+Epoch :   70, Cost : 1.015304
+Epoch :   80, Cost : 1.014766
+Epoch :   90, Cost : 1.014364
+'''
