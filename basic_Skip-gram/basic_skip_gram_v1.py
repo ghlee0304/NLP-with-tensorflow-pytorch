@@ -23,7 +23,6 @@ def tokenizer(text_data, stopword_list):
         texts.append(tmp)
     return texts
 
-
 def build_vocab(some_texts):
     words = []
     for t in some_texts:
@@ -109,8 +108,8 @@ T = tf.placeholder(dtype=tf.float32, shape=[batch_size, vocab_size], name='T')
 W1 = tf.get_variable('W1', [vocab_size, embed_size], initializer=tf.truncated_normal_initializer(stddev=0.01))
 b1 = tf.get_variable('b1', [embed_size], initializer=tf.zeros_initializer())
 
-o1 = tf.nn.l2_normalize(tf.nn.bias_add(tf.matmul(X, W1), b1), axis=1)
-o2 = tf.nn.l2_normalize(tf.nn.bias_add(tf.matmul(T, W1), b1), axis=1)
+o1 = tf.nn.bias_add(tf.matmul(X, W1), b1)
+o2 = tf.nn.bias_add(tf.matmul(T, W1), b1)
 logits = tf.reduce_sum(o1*o2, axis=1)
 
 cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=Y, logits=logits))
@@ -130,6 +129,7 @@ print("> The number of data samples : {}".format(len(input_data)))
 print("> Train Start!!!")
 
 total_step = int(len(input_data)/batch_size)
+nfig = 1
 for epoch in range(total_epochs):
     np.random.seed(epoch)
     mask = np.random.permutation(len(input_data))
@@ -142,9 +142,31 @@ for epoch in range(total_epochs):
                                                  T: np.concatenate([one_hot_encoding(w, vocab_size) for w in target_data[mask[s:t]]], axis=0)})
         loss_per_epoch += c/total_step
 
-    if epoch % 100 == 0:
-        print("Epoch : {:4d}, Cost : {:.6f}".format(epoch, loss_per_epoch))
+    if (epoch + 1) % 100 == 0 or (epoch + 1) == 1:
+        print("Epoch : {:4d}, Cost : {:.6f}".format(epoch+1, loss_per_epoch))
 
+        plt.figure(nfig)
+        for ix, sentence in enumerate(texts):
+            for word in sentence:
+                id = vocab[word]
+                word_one_hot = one_hot_encoding(id, vocab_size)
+                word_vec = np.reshape(sess.run(prediction, feed_dict={X_one: word_one_hot}), -1)
+                if ix == 0:
+                    color = 'b'
+                elif ix == 1:
+                    color = 'r'
+                elif ix == 2:
+                    color = 'k'
+                elif ix == 3:
+                    color = 'g'
+
+                plt.scatter(word_vec[0], word_vec[1], c=color)
+                plt.annotate(word, (word_vec[0], word_vec[1]))
+        plt.title('Epoch {}'.format(epoch+1))
+        plt.grid()
+        nfig += 1
+
+plt.figure(nfig)
 for ix, sentence in enumerate(texts):
     for word in sentence:
         id = vocab[word]
@@ -159,23 +181,25 @@ for ix, sentence in enumerate(texts):
         plt.annotate(word, (word_vec[0], word_vec[1]))
 
 print(texts)
-
+plt.title('Epoch {}'.format(epoch+1))
 plt.grid()
 plt.show()
 
 '''
-> The number of data samples : 1230
+> The number of data samples : 2066
 > Train Start!!!
-Epoch :    0, Cost : 0.693112
-Epoch :  100, Cost : 0.465482
-Epoch :  200, Cost : 0.454649
-Epoch :  300, Cost : 0.451714
-Epoch :  400, Cost : 0.451553
-Epoch :  500, Cost : 0.451819
-Epoch :  600, Cost : 0.450120
-Epoch :  700, Cost : 0.450229
-Epoch :  800, Cost : 0.450913
-Epoch :  900, Cost : 0.450639
+Epoch :    1, Cost : 0.693112
+Epoch :  100, Cost : 0.467862
+Epoch :  200, Cost : 0.455698
+Epoch :  300, Cost : 0.454758
+Epoch :  400, Cost : 0.451544
+Epoch :  500, Cost : 0.451368
+Epoch :  600, Cost : 0.451085
+Epoch :  700, Cost : 0.449719
+Epoch :  800, Cost : 0.448609
+Epoch :  900, Cost : 0.448344
+Epoch : 1000, Cost : 0.448770
+
 [['날', '하늘', '우러러', '점', '부끄럼', '잎새', '바람', '나'], 
  ['별', '노래', '마음', '모든', '사랑'], 
  ['나', '길', '가야'], 
